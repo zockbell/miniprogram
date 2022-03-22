@@ -8,7 +8,7 @@
 
 Native App 是基于 iOS 或者安卓的原生应用，特点是开发成本高，迭代慢，但是性能和体验很好，消息推送及时，比如 qq，微信等。
 
-![01](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\01.webp)
+![01](https://github.com/zockbell/miniprogram/blob/master/imgs/01.webp)
 
 ---
 
