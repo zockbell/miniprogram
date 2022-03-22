@@ -38,20 +38,20 @@ WebView 可以理解为嵌套了一个浏览器内核（比如 webkit）的移�
 
 | **微信小程序**                                           | **百度智能小程序**                                       | **支付宝小程序**                                         | **QQ 小程序**                                           |
 | :------------------------------------------------------- | :------------------------------------------------------- | :------------------------------------------------------- | :------------------------------------------------------ |
-| ![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\02.jpg) | ![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\04.jpg) | ![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\03.jpg) | ![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\5.png) |
+| ![](https://github.com/zockbell/miniprogram/blob/master/imgs/02.jpg) | ![](https://github.com/zockbell/miniprogram/blob/master/imgs/04.jpg) | ![](https://github.com/zockbell/miniprogram/blob/master/imgs/03.jpg) | ![](https://github.com/zockbell/miniprogram/blob/master/imgs/5.png) |
 | 2017.1                                                   | 2018.7                                                   | 2018.9                                                   | 2019.6                                                  |
 
 基于小程序几乎相同的技术原理，以及小程序的方便快捷的特性，还衍生出了多款小程序，比如抖音小程序、快手小程序、京东小程序、美团小程序等，帮助各大厂商更好的为用户提供便捷的服务。
 
 2017 年初微信率先推出小程序，其他互联网公司纷纷开发出自己的小程序，经过四年发展目前全网小程序已超过 700 万，微信小程序 DAU 超过 4.5 亿。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\20.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/20.png)
 
 目前主流小程序平台有 10 多家，包括腾讯的微信小程序、QQ 小程序；阿里的支付宝小程序、淘宝轻店铺；字节跳动的头条小程序、抖音小程序；百度小程序等；不同平台的实现标准各不相同，开发者需要学习不同平台的开发规范做定制化开发。
 
   2018 年微信小程序 “跳一跳” 爆火，记得当年食堂排队打饭的时候很多同学都在玩，助力了微信小程序在用户中的扩张，也激发了其他厂商开发小程序的热潮。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\06.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/06.png)
 
 ### 2. 原理分析
 
@@ -59,27 +59,27 @@ WebView 可以理解为嵌套了一个浏览器内核（比如 webkit）的移�
 
 无论是微信小程序还是支付宝小程序还是百度智能小程序等等，他们的总体架构都是基于双线程的。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\07.jpg)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/07.jpg)
 
 其中用于处理业务逻辑的 JS 代码运行在单独的线程里，渲染层（template、css）则运行在另外一个单独的线程里。
 
 以微信小程序为例：
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\08.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/08.png)
 
 双线程模型不同于单线程模型，逻辑层与渲染层的数据交互需要通过 JSBridge，二者是通过发布订阅，基于当前比较比较著名的 MVVM，来实现数据的双向绑定的，从而实现数据通信。
 
 这样我们在微信小程序中通过在逻辑层中 setData 来改变 Model 层的数据就能够实现视图数据的异步更新。
 
-### ![09](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\09.png)
+### ![09](https://github.com/zockbell/miniprogram/blob/master/imgs/09.png)
 
 以下是微信小程序的生命周期：
 
-![10](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\10.png)
+![10](https://github.com/zockbell/miniprogram/blob/master/imgs/10.png)
 
 #### **2.2 整体架构**
 
-![11](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\11.png)
+![11](https://github.com/zockbell/miniprogram/blob/master/imgs/11.png)
 
 ##### 2.2.1 **WAWebview**
 
@@ -112,7 +112,7 @@ WebView 可以理解为嵌套了一个浏览器内核（比如 webkit）的移�
 
 在 WAWebview 中包含了所有的 wx 自定义标签：
 
-![12](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\12.png)
+![12](https://github.com/zockbell/miniprogram/blob/master/imgs/12.png)
 
 同时，`__virtualDOM__` 模块提供了很多的基础 API，比如：
 
@@ -127,7 +127,7 @@ WebView 可以理解为嵌套了一个浏览器内核（比如 webkit）的移�
 
 WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消息通信的机制，提供了如下几个方法：
 
-![13](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\13.png)
+![13](https://github.com/zockbell/miniprogram/blob/master/imgs/13.png)
 
 里面最重要的便是 on 和 invoke，通过 on 来注册事件，通过 invoke 来触发相应的事件。
 
@@ -141,7 +141,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
 我们可以通过开发者工具，在 Devtools 里输入 help 可以得到很多指令：
 
-![14](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\14.png)
+![14](https://github.com/zockbell/miniprogram/blob/master/imgs/14.png)
 
 其中比较有用的是 openVendor。这个函数可以打开当前项目的源码，其实也就是包含了 wcc 和 wcsc 编译工具的一个文件夹：
 
@@ -149,7 +149,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
 我们可以将这些文件拷贝到一个单独的目录，在 VSCode 中打开该项目，并安装以下插件：
 
-![15](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\15.png)
+![15](https://github.com/zockbell/miniprogram/blob/master/imgs/15.png)
 
 这个插件可以将微信开发者工具中的所有以 .wxvpkg 结尾的文件进行解压缩。
 
@@ -194,7 +194,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
   会得到 JS 描述文件：
 
-  ![16](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\16.png)
+  ![16](https://github.com/zockbell/miniprogram/blob/master/imgs/16.png)
 
   它会声明一个 $gwx 函数，通过它可以得到 Virtual DOM。接着我们在这个文件里添加几行代码去调用它，并通过 Node.js 或者 NW.js 执行这个文件：
 
@@ -265,7 +265,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
   然后通过 window.exparser.registerElemtent 方法将这些 tag 转换成真实 DOM：
 
-  ![17](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\17.png)
+  ![17](https://github.com/zockbell/miniprogram/blob/master/imgs/17.png)
 
   比如说，以上的 wx-text 就会被转换成类似于以下 DOM：
 
@@ -286,7 +286,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
   可以将该文件从 wxss 格式的内容，转换成 JS 的内容：
 
-  ![18](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\18.png)
+  ![18](https://github.com/zockbell/miniprogram/blob/master/imgs/18.png)
 
   这里面会生成 setCssToHead 方法，用于将相应的 css 转换后（如 rpx 转 px 等等），通过 style 标签插入到文档的 head 里面。
 
@@ -320,7 +320,7 @@ WeixinJSBridge 提供了视图层 JS 与 Native、视图层与逻辑层之间消
 
 启动流程：
 
-![19](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\19.png)
+![19](https://github.com/zockbell/miniprogram/blob/master/imgs/19.png)
 
 ---
 
@@ -338,7 +338,7 @@ WeUI WXSS是腾讯官方UI组件库WeUI的小程序版，提供了跟微信界�
 
 npm下载：`npm i weui-wxss`
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\21.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/21.png)
 
 #### **3.2 iView WeApp**
 
@@ -348,7 +348,7 @@ GitHub地址：https://github.com/TalkingData/iview-weapp
 
 npm下载：`npm i iview-weapp`
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\22.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/22.png)
 
 #### **3.3 Vant WeApp**
 
@@ -362,7 +362,7 @@ GitHub地址：https://github.com/youzan/vant-weapp
 
 npm下载：```npm i @vant/weapp -S --production```
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\23.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/23.png)
 
 #### **3.4 Wux WeApp**
 
@@ -372,7 +372,7 @@ GitHub地址：https://github.com/wux-weapp/wux-weapp
 
 npm下载：`npm i wux-weapp`
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\24.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/24.png)
 
 #### **3.5 ColorUI**
 
@@ -382,7 +382,7 @@ ColorUI是一个Css类的UI组件库！不是一个Js框架。相比于同类小
 
 GitHub地址：[github.com/weilanwl/Co…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fweilanwl%2FColorUI)
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\25.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/25.png)
 
 #### **3.6 Lin UI**
 
@@ -392,7 +392,7 @@ Lin UI 是基于 **微信小程序原生语法** 实现的组件库。遵循简�
 
 npm下载安装：`npm install lin-ui --production`
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\26.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/26.png)
 
 #### **3.7 NutUI**（主要结合Taro跨端开发）
 
@@ -406,13 +406,13 @@ npm下载安装：`npm install lin-ui --production`
 
 Taro 在小程序跨端开发中有着出众的表现，Taro 3x 在 2020年11月也宣布支持了 Vue3，所以我们可以采用 Taro + Vue 的技术栈来达到在小程序中适配多端的目的。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\29.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/29.png)
 
 github地址：https://github.com/jdf2e/nutui
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\27.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/27.png)
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\28.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/28.png)
 
 ---
 
@@ -424,7 +424,7 @@ github地址：https://github.com/jdf2e/nutui
 
 在纵观整个前端的历史，无论是 CSS 预处理器的大行其道、各种模版的流行，还是 CoffeeScript 乃至  TypeScript  的诞生，都印证了这个说法，微信小程序这里也不例外。因此，各种小程序开发框架如百花齐放，层出不穷。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\30.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/30.png)
 
 从框架的语法来说大致分为 React、Vue 两类：
 
@@ -434,7 +434,7 @@ github地址：https://github.com/jdf2e/nutui
 
 通过实现一套  `DOM/BOM`  的 API（实际会操作 Taro DOM Tree -- Taro 自定义的一颗虚拟 dom 树）通过 template Taro DOM Tree 在运行时动态生成页面结构。优势是框架兼容性更高支持：React、Vue、Preact 等，实现了一套自己的事件机制不依赖特定平台。同时缺点也比较明显：深层嵌套的 template 结构导致包体积略大，实际生成页面冗余节点较多
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\31.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/31.png)
 
 #### **4.2 Uni-app：Vue 阵营代表**
 
@@ -442,7 +442,7 @@ github地址：https://github.com/jdf2e/nutui
 
 提供 IDE 、开发配套流程完整上手容易，有最多的使用者。在编译阶段将 Vue SFC 写法的代码编译成 小程序代码文件（JS、WXML、WXSS、JSON），在运行阶段进行 vue 和 page 实例的绑定，将 patch 阶段的 dom 操作替换为 setData。优点是生成的页面结构与原生接近没有冗余节点。缺陷主要是可用框架比较局限，基本是 fork 特定版本的 vue 做定制化开发，无法支持其他版本和框架
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\32.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/32.png)
 
 目前从一些社区反馈及测试结果来看，uniapp 在开发工具链、多端一致性体验上相对领先。Taro 背靠京东在自家多个小程序上使用（京东购物在阿拉丁小程序指数中排入 TOP10 ），近一年更新也很频繁，最新版本已经在适配鸿蒙应用。**框架间并没有明显拉开差距，实际在选型时可能主要还是看团队本身的技术栈偏好。**
 
@@ -454,7 +454,7 @@ github地址：https://github.com/jdf2e/nutui
 - miniprogram-to-uniapp：uniapp 提供的转换工具，可将原生微信小程序转成 uniapp 项目来适配多端
 - @tarojs/cli：tarojs 提供的转换工具，也只能将原生微信小程序应用转换为 Taro 项目
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\33.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/33.png)
 
 可以看出上述 npm 包的下载量都不多，说明该方法目前使用场景太小了，很多包已经很久没有更新，所以**预计今年也不会有什么大的改变**。
 
@@ -464,7 +464,7 @@ github地址：https://github.com/jdf2e/nutui
 - hera-cli: 用小程序方式来写跨平台应用的开发框架，可以打包成 Android 、 iOS 应用，以及 H5
 - weweb-cli: 兼容小程序语法的前端框架，可以用小程序的写法，来写 web 应用
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\34.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/34.png)
 
 **跨端这项技术并非为了完全替代原生开发，针对每个场景我们都可以用原生写出性能最佳的代码**。但是这样做工作量太大，实际项目开发中需要掌握效率与优化之间的平衡，跨端的使用场景并不一定是项目级别的，可以是业务级甚至是页面级的。
 
@@ -522,7 +522,7 @@ uni-app 于2018年底率先推出插件市场，支持前端组件、js sdk、�
 
 Taro 于 2019年5月上线物料市场，目前市场上已发布物料90个；从热门榜单来看，下载量并不大，下载最多的也就数百。
 
-![](D:\pep\37--2022年项目\05-小程序介绍文档\imgs\35.png)
+![](https://github.com/zockbell/miniprogram/blob/master/imgs/35.png)
 
 **跨端灵活性**
 跨端开发，离不开条件编译。因为不能用统一来抹杀各个平台的特色。
